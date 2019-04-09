@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>info</ion-title>
+    <ion-title class="text-center">Assignment</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<br> <br> <br>
 <ion-content>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 offset-0">
+        <div class="card" style="width: 18rem;" *ngIf="infos">
+            <div class="card-header text-center">
+                phenology
+            </div>
+            <div *ngFor="let info of infos.phenology">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>ID:</strong> {{ info.id }} </li>
+              <li class="list-group-item"> <strong class="text-center">Name:</strong>
+                <div class="col-sm-4" *ngIf="info.name.en"><b>en:</b> {{info.name?.en}} </div>
+                <div class="col-sm-4" *ngIf="info.name.no"><b>no:</b> {{info.name?.no}} </div>
+                <div class="col-sm-4" *ngIf="info.name.la"><b>la:</b> {{info.name?.la}} </div>
+            </li>
+              
+              <li class="list-group-item"><strong>Phase</strong></li>
+              <div *ngFor="let phase of info.phases">
+                <li class="list-group-item"><strong>ID:</strong> {{phase.id}}</li>
+                <li class="list-group-item"> <strong class="text-center">Title:</strong>
+                  <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>en</th>
+                          <th>no</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>{{phase.title.en}}</td>
+                          <td>{{phase.title.no}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div><strong>ws:</strong> <a href="{{phase.ws.add}}">add</a></div>
+                </li>
+              </div>
+            <br> <br> <br>
+          </ul>
+          </div>
+          </div>
+        </div>
+  </div>
+</div>
 </ion-content>
